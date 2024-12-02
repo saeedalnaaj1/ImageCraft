@@ -43,4 +43,4 @@ To convert to .exe format :
 
 1 - install pyinstaller using : pip install pyinstaller 
 
-2 - use this command in your IDE CLI : pyinstaller --onefile --windowed ImageCraft.py , if you want to add my ico , just add this argument : --icon=imagecraft.ico
+2 - use this command in your IDE CLI : pyinstaller --onefile --windowed ImageCraft.py , if you want to add my ico , just add this argument : --icon=ImageCraft.ico
