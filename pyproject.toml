@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=75.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "imagecraft"
+version = "2.0.0"
+description = "Comprehensive Image Preprocessing Tool — Transformations and Augmentations"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [
+    {name = "Saeed Sameeh Abualnaaj", email = "saeed@example.com"},
+]
+readme = "README.md"
+dependencies = [
+    "opencv-python>=4.9",
+    "numpy>=1.26",
+    "pywebview>=5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "mypy>=1.10",
+    "ruff>=0.4",
+    "pywebview[tests]>=5.0",
+]
+
+[project.scripts]
+imagecraft = "imagecraft.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["imagecraft*"]
+
+[tool.setuptools.package-data]
+imagecraft = ["ui/**/*"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+# Archived PySide6 UI from the v1 app — not part of the pywebview rebuild.
+extend-exclude = ["imagecraft/widgets", "imagecraft/views"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
